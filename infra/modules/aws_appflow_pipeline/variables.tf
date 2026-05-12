@@ -80,7 +80,7 @@ variable "destination_config" {
       file_type        = optional(string, "PARQUET")
       aggregation_type = optional(string, "SingleFile")
       prefix_type      = optional(string, "PATH")
-      prefix_format    = optional(string, "YEAR_MONTH_DAY_HOUR")
+      prefix_format    = optional(string, "HOUR")
     }))
     redshift = optional(object({
       object             = string
