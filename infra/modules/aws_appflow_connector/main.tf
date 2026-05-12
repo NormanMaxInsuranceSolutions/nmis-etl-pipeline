@@ -17,10 +17,9 @@ resource "aws_appflow_connector_profile" "this" {
       dynamic "zendesk" {
         for_each = var.credentials.zendesk != null ? [var.credentials.zendesk] : []
         content {
-          access_token           = zendesk.value.access_token
-          client_id              = zendesk.value.client_id
-          client_secret          = zendesk.value.client_secret
-          client_credentials_arn = zendesk.value.client_credentials_arn
+          access_token  = zendesk.value.access_token
+          client_id     = zendesk.value.client_id
+          client_secret = zendesk.value.client_secret
         }
       }
       dynamic "service_now" {
@@ -33,10 +32,9 @@ resource "aws_appflow_connector_profile" "this" {
       dynamic "slack" {
         for_each = var.credentials.slack != null ? [var.credentials.slack] : []
         content {
-          access_token           = slack.value.access_token
-          client_id              = slack.value.client_id
-          client_secret          = slack.value.client_secret
-          client_credentials_arn = slack.value.client_credentials_arn
+          access_token  = slack.value.access_token
+          client_id     = slack.value.client_id
+          client_secret = slack.value.client_secret
         }
       }
     }

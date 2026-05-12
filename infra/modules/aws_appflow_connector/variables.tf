@@ -25,20 +25,18 @@ variable "credentials" {
       client_credentials_arn = optional(string)
     }))
     zendesk = optional(object({
-      access_token           = optional(string)
-      client_id              = optional(string)
-      client_secret          = optional(string)
-      client_credentials_arn = optional(string)
+      access_token  = optional(string)
+      client_id     = optional(string)
+      client_secret = optional(string)
     }))
     service_now = optional(object({
       username = string
       password = string
     }))
     slack = optional(object({
-      access_token           = optional(string)
-      client_id              = optional(string)
-      client_secret          = optional(string)
-      client_credentials_arn = optional(string)
+      access_token  = optional(string)
+      client_id     = optional(string)
+      client_secret = optional(string)
     }))
   })
 }
