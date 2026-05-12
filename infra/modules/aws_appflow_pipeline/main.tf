@@ -91,8 +91,7 @@ resource "aws_appflow_flow" "this" {
         dynamic "event_bridge" {
           for_each = var.destination_config.event_bridge != null ? [var.destination_config.event_bridge] : []
           content {
-            object         = event_bridge.value.object
-            id_field_names = event_bridge.value.id_field_names
+            object = event_bridge.value.object
 
             dynamic "error_handling_config" {
               for_each = event_bridge.value.error_handling_config != null ? [event_bridge.value.error_handling_config] : []
@@ -117,7 +116,6 @@ resource "aws_appflow_flow" "this" {
         scheduled {
           schedule_expression = trigger_properties.value.schedule_expression
           data_pull_mode      = trigger_properties.value.data_pull_mode
-          start_time          = trigger_properties.value.start_time
         }
       }
     }

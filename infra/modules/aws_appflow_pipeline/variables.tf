@@ -88,8 +88,7 @@ variable "destination_config" {
       bucket_prefix      = optional(string)
     }))
     event_bridge = optional(object({
-      object        = string
-      id_field_names = optional(list(string), [])
+      object = string
       error_handling_config = optional(object({
         fail_on_first_destination_error = optional(bool, true)
         bucket_name                     = optional(string)
@@ -110,7 +109,6 @@ variable "trigger" {
     scheduled = optional(object({
       schedule_expression = string
       data_pull_mode      = optional(string, "Incremental")
-      start_time          = optional(string, "2024-01-01T00:00:00Z")
     }))
   })
   default = {
