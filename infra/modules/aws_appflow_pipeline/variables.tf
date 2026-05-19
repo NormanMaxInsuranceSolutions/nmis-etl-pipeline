@@ -78,7 +78,7 @@ variable "destination_config" {
       bucket_name      = string
       bucket_prefix    = optional(string)
       file_type        = optional(string, "PARQUET")
-      aggregation_type = optional(string, "SingleFile")
+      aggregation_type = optional(string, "None")
       prefix_type      = optional(string, "PATH")
       prefix_format    = optional(string, "HOUR")
     }))
