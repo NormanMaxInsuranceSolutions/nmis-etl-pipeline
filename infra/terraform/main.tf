@@ -149,6 +149,25 @@ resource "aws_s3_bucket_public_access_block" "data_lake" {
 ####    APPFLOW — SALESFORCE Connection    ####
 ###############################################
 
+resource "aws_secretsmanager_secret_policy" "salesforce_appflow_connector" {
+  secret_arn = data.aws_secretsmanager_secret.salesforce_appflow_connector.arn
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect    = "Allow"
+      Principal = { Service = "appflow.amazonaws.com" }
+      Action    = "secretsmanager:GetSecretValue"
+      Resource  = "*"
+      Condition = {
+        StringEquals = {
+          "aws:SourceAccount" = var.aws_account
+        }
+      }
+    }]
+  })
+}
+
 module "salesforce_connector" {
   source = "../modules/aws_appflow_connector"
 
