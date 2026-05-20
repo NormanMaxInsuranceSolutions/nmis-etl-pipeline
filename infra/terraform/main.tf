@@ -250,6 +250,5 @@ resource "terraform_data" "activate_policy_flow" {
       queue_arn     = data.aws_ssm_parameter.snowpipe_sqs_arn.value
       events        = ["s3:ObjectCreated:*"]
       filter_prefix = "raw/policy/"
-      filter_suffix = ".parquet"
    }
  }
