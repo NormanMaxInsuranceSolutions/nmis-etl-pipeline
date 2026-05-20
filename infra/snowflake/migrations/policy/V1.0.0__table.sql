@@ -1,8 +1,9 @@
-USE DATABASE {{ database }};
+USE ROLE ACCOUNTADMIN;
+USE DATABASE {env}_NMIS_ETL_PIPELINE;
 
 CREATE SCHEMA IF NOT EXISTS SALESFORCE;
 
-CREATE TABLE IF NOT EXISTS SALESFORCE.POLICY (
+CREATE OR REPLACE TABLE SALESFORCE.POLICY (
     -- Standard Salesforce fields
     id                                          VARCHAR(18)     NOT NULL,
     owner_id                                    VARCHAR(18),
@@ -20,8 +21,8 @@ CREATE TABLE IF NOT EXISTS SALESFORCE.POLICY (
 
     -- Custom fields
     agency__c                                   VARCHAR(18),
-    available_recovery__c                       FLOAT,
-    brokerage_percent_of_gross_premium__c       FLOAT,
+    available_recovery__c                       NUMBER(18, 4),
+    brokerage_percent_of_gross_premium__c       NUMBER(18, 4),
     carrier__c                                  VARCHAR(18),
     cover_type_1__c                             VARCHAR,
     cover_type_2__c                             VARCHAR,
@@ -32,13 +33,13 @@ CREATE TABLE IF NOT EXISTS SALESFORCE.POLICY (
     expiration_date__c                          DATE,
     location_of_risk_county__c                  VARCHAR,
     named_insured__c                            VARCHAR(18),
-    number_of_transactions__c                   FLOAT,
+    number_of_transactions__c                   NUMBER(18, 0),
     oldpolicy__c                                VARCHAR(18),
-    period_of_cover_narrative__c                FLOAT,
+    period_of_cover_narrative__c               NUMBER(18, 4),
     policy_basis__c                             VARCHAR,
     policy_number__c                            VARCHAR,
     policy_status__c                            VARCHAR,
-    policy_term__c                              FLOAT,
+    policy_term__c                              NUMBER(18, 4),
     producer__c                                 VARCHAR(18),
     producing_agent__c                          VARCHAR(18),
     product__c                                  VARCHAR(18),
@@ -48,14 +49,14 @@ CREATE TABLE IF NOT EXISTS SALESFORCE.POLICY (
     renewal_of__c                               VARCHAR(18),
     risk_code__c                                VARCHAR,
     sales_lead__c                               VARCHAR(18),
-    sum_insured_amount__c                       FLOAT,
+    sum_insured_amount__c                       NUMBER(18, 4),
     sum_insured_currency__c                     VARCHAR(3),
     surplus_lines_broker_country__c             VARCHAR,
     surplus_lines_license__c                    VARCHAR(18),
     tria_accepted__c                            BOOLEAN,
-    tria_premium__c                             FLOAT,
+    tria_premium__c                             NUMBER(18, 4),
     tria_sign_date__c                           DATE,
-    total_gross_written_premium__c              FLOAT,
+    total_gross_written_premium__c              NUMBER(18, 4),
     type_of_insurance__c                        VARCHAR,
     us_classification_of_risk__c               VARCHAR,
     agreement_no__c                             VARCHAR,
@@ -85,14 +86,14 @@ CREATE TABLE IF NOT EXISTS SALESFORCE.POLICY (
     submission__c                               VARCHAR(18),
     brokerage_name__c                           VARCHAR,
     product_conga__c                            VARCHAR,
-    total_indemnity_paid__c                     FLOAT,
-    remaining_limit__c                          FLOAT,
+    total_indemnity_paid__c                     NUMBER(18, 4),
+    remaining_limit__c                          NUMBER(18, 4),
     account_type__c                             VARCHAR,
     insurance_type__c                           VARCHAR,
     risk_code_formula__c                        VARCHAR,
     diligence_search__c                         BOOLEAN,
-    number_of_transactions_rollup__c            FLOAT,
-    total_gross_written_premium_rollup__c       FLOAT,
+    number_of_transactions_rollup__c            NUMBER(18, 0),
+    total_gross_written_premium_rollup__c       NUMBER(18, 4),
     sharepoint_folder__c                        VARCHAR,
     taxes_paid_by_brooker__c                    BOOLEAN,
     surplus_lines_license_agent__c              VARCHAR(18),
@@ -113,8 +114,8 @@ CREATE TABLE IF NOT EXISTS SALESFORCE.POLICY (
     surplus_lines_agency_name__c                VARCHAR,
     surplus_lines_broker_city__c                VARCHAR,
     producer_formula__c                         VARCHAR,
-    number_of_claims__c                         FLOAT,
-    number_of_denied_claims__c                  FLOAT,
+    number_of_claims__c                         NUMBER(18, 0),
+    number_of_denied_claims__c                  NUMBER(18, 0),
     agent_incentive_program__c                  VARCHAR,
     bound_via__c                                VARCHAR,
     year_of_account_om__c                       VARCHAR(4),
@@ -124,4 +125,4 @@ CREATE TABLE IF NOT EXISTS SALESFORCE.POLICY (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS SALESFORCE.POLICY_STAGING LIKE SALESFORCE.POLICY;
+CREATE OR REPLACE TABLE SALESFORCE.POLICY_STAGING LIKE SALESFORCE.POLICY;
