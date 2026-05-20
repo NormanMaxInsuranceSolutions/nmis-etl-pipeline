@@ -198,7 +198,7 @@ module "salesforce_connector" {
 # —— - Salesforce Policy -> Snowflake pipeline - ——
 # —————————————————————————————————————————————————
 
-# salesforce policy object -> S3 pipeline
+# salesforce sf_policy object -> S3 pipeline
 module "salesforce_policy_to_s3" {
   source   = "../modules/aws_appflow_pipeline"
   name = "${local.name_prefix}-policy-sync"
