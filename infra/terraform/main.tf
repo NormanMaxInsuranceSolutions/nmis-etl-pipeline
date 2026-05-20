@@ -157,8 +157,9 @@ module "salesforce_connector" {
 
   credentials = {
     salesforce = {
-      access_token  = jsondecode(data.aws_secretsmanager_secret_version.salesforce_appflow_connector.secret_string)["accessToken"]
-      refresh_token = jsondecode(data.aws_secretsmanager_secret_version.salesforce_appflow_connector.secret_string)["refreshToken"]
+      access_token           = jsondecode(data.aws_secretsmanager_secret_version.salesforce_appflow_connector.secret_string)["accessToken"]
+      refresh_token          = jsondecode(data.aws_secretsmanager_secret_version.salesforce_appflow_connector.secret_string)["refreshToken"]
+      client_credentials_arn = data.aws_secretsmanager_secret.salesforce_appflow_connector.arn
     }
   }
 
