@@ -3,6 +3,10 @@ resource "aws_appflow_connector_profile" "this" {
   connector_type  = var.connector_type
   connection_mode = var.connection_mode
 
+  lifecycle {
+    ignore_changes = [connector_profile_config[0].connector_profile_credentials]
+  }
+
   connector_profile_config {
     connector_profile_credentials {
       dynamic "salesforce" {
