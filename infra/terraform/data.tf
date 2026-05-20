@@ -11,6 +11,10 @@ data "aws_secretsmanager_secret" "salesforce_appflow_connector" {
   name = "${terraform.workspace}/${var.app_prefix}/${var.component}/salesforce_appflow_connector"
 }
 
+data "aws_secretsmanager_secret" "salesforce_appflow_client_credentials" {
+  name = "${terraform.workspace}/${var.app_prefix}/${var.component}/salesforce_appflow_client_credentials"
+}
+
 data "aws_secretsmanager_secret_version" "salesforce_appflow_connector" {
   secret_id = data.aws_secretsmanager_secret.salesforce_appflow_connector.id
 }

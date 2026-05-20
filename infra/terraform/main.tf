@@ -150,7 +150,7 @@ resource "aws_s3_bucket_public_access_block" "data_lake" {
 ###############################################
 
 resource "aws_secretsmanager_secret_policy" "salesforce_appflow_connector" {
-  secret_arn = data.aws_secretsmanager_secret.salesforce_appflow_connector.arn
+  secret_arn = data.aws_secretsmanager_secret.salesforce_appflow_client_credentials.arn
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -178,7 +178,7 @@ module "salesforce_connector" {
     salesforce = {
       access_token           = jsondecode(data.aws_secretsmanager_secret_version.salesforce_appflow_connector.secret_string)["accessToken"]
       refresh_token          = jsondecode(data.aws_secretsmanager_secret_version.salesforce_appflow_connector.secret_string)["refreshToken"]
-      client_credentials_arn = data.aws_secretsmanager_secret.salesforce_appflow_connector.arn
+      client_credentials_arn = data.aws_secretsmanager_secret.salesforce_appflow_client_credentials.arn
     }
   }
 
