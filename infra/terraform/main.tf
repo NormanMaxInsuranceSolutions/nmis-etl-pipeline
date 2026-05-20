@@ -231,6 +231,14 @@ module "salesforce_policy_to_s3" {
   }
 }
 
+resource "terraform_data" "activate_policy_flow" {
+  triggers_replace = [module.salesforce_policy_to_s3.flow_arn]
+
+  provisioner "local-exec" {
+    command = "aws appflow start-flow --flow-name ${module.salesforce_policy_to_s3.flow_name} --region ${var.aws_region}"
+  }
+}
+
 # S3 → Snowflake Snowpipe notifications
  resource "aws_s3_bucket_notification" "etl_snowpipes" {
     bucket      = aws_s3_bucket.data_lake.id
