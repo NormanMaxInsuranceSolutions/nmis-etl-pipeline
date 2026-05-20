@@ -124,6 +124,9 @@ resource "aws_appflow_flow" "this" {
   task {
     task_type     = "Map_all"
     source_fields = []
+    task_properties = {
+      "DESTINATION_DATA_TYPE" = "string"
+    }
     connector_operator {
       salesforce  = var.source_connector_type == "Salesforce" ? "NO_OP" : null
       zendesk     = var.source_connector_type == "Zendesk" ? "NO_OP" : null
