@@ -27,6 +27,13 @@ node {
 
             stage("Terraform: Remove Orphaned State") {
                 echo 'Remove orphans...'
+                if (env.Environment == 'uat') {
+                    sh '''
+                        cd ./infra/terraform
+                        terraform state list | grep -q "module.salesforce_connector.aws_appflow_connector_profile.this" || \
+                        terraform import module.salesforce_connector.aws_appflow_connector_profile.this uat-nmis-etl-pipelines-salesforce-connector
+                    '''
+                }
             }
 
             stage("Terraform: Plan & Apply") {
