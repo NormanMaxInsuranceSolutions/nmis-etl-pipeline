@@ -27,14 +27,6 @@ node {
 
             stage("Terraform: Remove Orphaned State") {
                 echo 'Remove orphans...'
-                sh '''
-                    cd ./infra/terraform
-                    WORKSPACE=$(terraform workspace show)
-                    PROFILE="${WORKSPACE}-nmis-etl-pipelines-salesforce-connector"
-                    terraform state list | grep -q "module.salesforce_connector.aws_appflow_connector_profile.this" || \
-                    terraform import module.salesforce_connector.aws_appflow_connector_profile.this "${PROFILE}" || \
-                    echo "Connector profile not found in AWS, skipping import."
-                '''
             }
 
             stage("Terraform: Plan & Apply") {
