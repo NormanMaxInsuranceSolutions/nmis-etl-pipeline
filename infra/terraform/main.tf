@@ -239,6 +239,51 @@ resource "terraform_data" "activate_policy_flow" {
   }
 }
 
+# ——————————————————————————————————————————————————
+# —— - Salesforce Structure -> Snowflake pipeline - ——
+# ——————————————————————————————————————————————————
+
+# salesforce Structure__c object -> S3 pipeline
+module "salesforce_structure_to_s3" {
+  source = "../modules/aws_appflow_pipeline"
+  name   = "${local.name_prefix}-structure-sync"
+  tags   = local.tags
+
+  source_connector_type         = "Salesforce"
+  source_connector_profile_name = module.salesforce_connector.connector_profile_name
+  source_config = {
+    salesforce = { object = "Structure__c" }
+  }
+
+  incremental_pull_config = {
+    datetime_type_field_name = "LastModifiedDate"
+  }
+
+  destination_connector_type = "S3"
+  destination_config = {
+    s3 = {
+      bucket_name   = aws_s3_bucket.data_lake.bucket
+      bucket_prefix = "raw/structure"
+    }
+  }
+
+  trigger = {
+    type = "Scheduled"
+    scheduled = {
+      schedule_expression = var.appflow_schedule
+      data_pull_mode      = "Incremental"
+    }
+  }
+}
+
+resource "terraform_data" "activate_structure_flow" {
+  triggers_replace = [module.salesforce_structure_to_s3.flow_arn]
+
+  provisioner "local-exec" {
+    command = "aws appflow start-flow --flow-name ${module.salesforce_structure_to_s3.flow_name} --region ${var.aws_region}"
+  }
+}
+
 # S3 → Snowflake Snowpipe notifications
  resource "aws_s3_bucket_notification" "etl_snowpipes" {
     bucket      = aws_s3_bucket.data_lake.id
@@ -250,5 +295,13 @@ resource "terraform_data" "activate_policy_flow" {
       queue_arn     = data.aws_ssm_parameter.snowpipe_sqs_arn.value
       events        = ["s3:ObjectCreated:*"]
       filter_prefix = "raw/policy/"
+   }
+
+   // queue event for salesforce Structure object
+   queue {
+      id            = "${local.name_prefix}-structure-event"
+      queue_arn     = data.aws_ssm_parameter.snowpipe_sqs_arn.value
+      events        = ["s3:ObjectCreated:*"]
+      filter_prefix = "raw/structure/"
    }
  }
