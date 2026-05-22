@@ -84,7 +84,7 @@ CREATE OR REPLACE PIPE SALESFORCE.POLICY_PIPE
           $1:"Risk_Code__c"::VARCHAR,
           $1:"Sales_Lead__c"::VARCHAR,
           TRY_TO_NUMBER($1:"Sum_Insured_Amount__c"::VARCHAR, 18, 4),
-          $1:"Sum_Insured_Currency__c"::VARCHAR,
+          NULLIF($1:"Sum_Insured_Currency__c"::VARCHAR, 'null'),
           $1:"Surplus_Lines_Broker_Country__c"::VARCHAR,
           NULL::VARCHAR,                                                                    -- surplus_lines_license__c (not in AppFlow export)
           $1:"TRIA_Accepted__c"::BOOLEAN,
@@ -108,7 +108,7 @@ CREATE OR REPLACE PIPE SALESFORCE.POLICY_PIPE
           $1:"Surplus_Lines_Broker_State__c"::VARCHAR,
           $1:"Surplus_Lines_Broker_Zip_Code__c"::VARCHAR,
           $1:"Unique_Market_Reference__c"::VARCHAR,
-          $1:"Year_of_Account__c"::VARCHAR,
+          NULLIF($1:"Year_of_Account__c"::VARCHAR, 'null'),
           $1:"Location_of_Risk_Country__c"::VARCHAR,
           $1:"State_of_Filing__c"::VARCHAR,
           $1:"Location_of_Risk_State_Province__c"::VARCHAR,
@@ -150,7 +150,7 @@ CREATE OR REPLACE PIPE SALESFORCE.POLICY_PIPE
           NULL::NUMBER(18, 0),                                                             -- number_of_denied_claims__c (not in AppFlow export)
           NULL::VARCHAR,                                                                    -- agent_incentive_program__c (not in AppFlow export)
           NULL::VARCHAR,                                                                    -- bound_via__c (not in AppFlow export)
-          $1:"Year_Of_Account_OM__c"::VARCHAR,
+          NULLIF($1:"Year_Of_Account_OM__c"::VARCHAR, 'null'),
           NULL::VARCHAR,                                                                    -- entity_type__c (not in AppFlow export)
           NULL::VARCHAR                                                                     -- parent_brokerage_name__c (not in AppFlow export)
       FROM @SALESFORCE.SALESFORCE_RAW/policy/
