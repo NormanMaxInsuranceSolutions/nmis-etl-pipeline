@@ -460,6 +460,50 @@ resource "terraform_data" "activate_payout_table_flow" {
   }
 }
 
+# ————————————————————————————————————————————————————
+# —— - Salesforce Schedule -> Snowflake pipeline - ——
+# ————————————————————————————————————————————————————
+
+module "salesforce_schedule_to_s3" {
+  source = "../modules/aws_appflow_pipeline"
+  name   = "${local.name_prefix}-schedule-sync"
+  tags   = local.tags
+
+  source_connector_type         = "Salesforce"
+  source_connector_profile_name = module.salesforce_connector.connector_profile_name
+  source_config = {
+    salesforce = { object = "Schedule__c" }
+  }
+
+  incremental_pull_config = {
+    datetime_type_field_name = "LastModifiedDate"
+  }
+
+  destination_connector_type = "S3"
+  destination_config = {
+    s3 = {
+      bucket_name   = aws_s3_bucket.data_lake.bucket
+      bucket_prefix = "raw/schedule"
+    }
+  }
+
+  trigger = {
+    type = "Scheduled"
+    scheduled = {
+      schedule_expression = var.appflow_schedule
+      data_pull_mode      = "Incremental"
+    }
+  }
+}
+
+resource "terraform_data" "activate_schedule_flow" {
+  triggers_replace = [module.salesforce_schedule_to_s3.flow_arn]
+
+  provisioner "local-exec" {
+    command = "aws appflow start-flow --flow-name ${module.salesforce_schedule_to_s3.flow_name} --region ${var.aws_region}"
+  }
+}
+
 # S3 → Snowflake Snowpipe notifications
  resource "aws_s3_bucket_notification" "etl_snowpipes" {
     bucket      = aws_s3_bucket.data_lake.id
@@ -511,5 +555,13 @@ resource "terraform_data" "activate_payout_table_flow" {
       queue_arn     = data.aws_ssm_parameter.snowpipe_sqs_arn.value
       events        = ["s3:ObjectCreated:*"]
       filter_prefix = "raw/payout_table/"
+   }
+
+   // queue event for salesforce Schedule object
+   queue {
+      id            = "${local.name_prefix}-schedule-event"
+      queue_arn     = data.aws_ssm_parameter.snowpipe_sqs_arn.value
+      events        = ["s3:ObjectCreated:*"]
+      filter_prefix = "raw/schedule/"
    }
  }
