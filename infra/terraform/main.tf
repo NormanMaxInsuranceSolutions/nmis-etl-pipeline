@@ -460,6 +460,50 @@ resource "terraform_data" "activate_payout_table_flow" {
   }
 }
 
+# —————————————————————————————————————————————————————————
+# —— - Salesforce Transaction -> Snowflake pipeline - ——
+# —————————————————————————————————————————————————————————
+
+module "salesforce_transaction_to_s3" {
+  source = "../modules/aws_appflow_pipeline"
+  name   = "${local.name_prefix}-transaction-sync"
+  tags   = local.tags
+
+  source_connector_type         = "Salesforce"
+  source_connector_profile_name = module.salesforce_connector.connector_profile_name
+  source_config = {
+    salesforce = { object = "Transaction__c" }
+  }
+
+  incremental_pull_config = {
+    datetime_type_field_name = "LastModifiedDate"
+  }
+
+  destination_connector_type = "S3"
+  destination_config = {
+    s3 = {
+      bucket_name   = aws_s3_bucket.data_lake.bucket
+      bucket_prefix = "raw/transaction"
+    }
+  }
+
+  trigger = {
+    type = "Scheduled"
+    scheduled = {
+      schedule_expression = var.appflow_schedule
+      data_pull_mode      = "Incremental"
+    }
+  }
+}
+
+resource "terraform_data" "activate_transaction_flow" {
+  triggers_replace = [module.salesforce_transaction_to_s3.flow_arn]
+
+  provisioner "local-exec" {
+    command = "aws appflow start-flow --flow-name ${module.salesforce_transaction_to_s3.flow_name} --region ${var.aws_region}"
+  }
+}
+
 # ————————————————————————————————————————————————————
 # —— - Salesforce Schedule -> Snowflake pipeline - ——
 # ————————————————————————————————————————————————————
@@ -501,6 +545,50 @@ resource "terraform_data" "activate_schedule_flow" {
 
   provisioner "local-exec" {
     command = "aws appflow start-flow --flow-name ${module.salesforce_schedule_to_s3.flow_name} --region ${var.aws_region}"
+  }
+}
+
+# ———————————————————————————————————————————————————
+# —— - Salesforce Trigger -> Snowflake pipeline - ——
+# ———————————————————————————————————————————————————
+
+module "salesforce_trigger_to_s3" {
+  source = "../modules/aws_appflow_pipeline"
+  name   = "${local.name_prefix}-trigger-sync"
+  tags   = local.tags
+
+  source_connector_type         = "Salesforce"
+  source_connector_profile_name = module.salesforce_connector.connector_profile_name
+  source_config = {
+    salesforce = { object = "Trigger__c" }
+  }
+
+  incremental_pull_config = {
+    datetime_type_field_name = "LastModifiedDate"
+  }
+
+  destination_connector_type = "S3"
+  destination_config = {
+    s3 = {
+      bucket_name   = aws_s3_bucket.data_lake.bucket
+      bucket_prefix = "raw/trigger"
+    }
+  }
+
+  trigger = {
+    type = "Scheduled"
+    scheduled = {
+      schedule_expression = var.appflow_schedule
+      data_pull_mode      = "Incremental"
+    }
+  }
+}
+
+resource "terraform_data" "activate_trigger_flow" {
+  triggers_replace = [module.salesforce_trigger_to_s3.flow_arn]
+
+  provisioner "local-exec" {
+    command = "aws appflow start-flow --flow-name ${module.salesforce_trigger_to_s3.flow_name} --region ${var.aws_region}"
   }
 }
 
@@ -557,11 +645,27 @@ resource "terraform_data" "activate_schedule_flow" {
       filter_prefix = "raw/payout_table/"
    }
 
+   // queue event for salesforce Transaction object
+   queue {
+      id            = "${local.name_prefix}-transaction-event"
+      queue_arn     = data.aws_ssm_parameter.snowpipe_sqs_arn.value
+      events        = ["s3:ObjectCreated:*"]
+      filter_prefix = "raw/transaction/"
+   }
+
    // queue event for salesforce Schedule object
    queue {
       id            = "${local.name_prefix}-schedule-event"
       queue_arn     = data.aws_ssm_parameter.snowpipe_sqs_arn.value
       events        = ["s3:ObjectCreated:*"]
       filter_prefix = "raw/schedule/"
+   }
+
+   // queue event for salesforce Trigger object
+   queue {
+      id            = "${local.name_prefix}-trigger-event"
+      queue_arn     = data.aws_ssm_parameter.snowpipe_sqs_arn.value
+      events        = ["s3:ObjectCreated:*"]
+      filter_prefix = "raw/trigger/"
    }
  }
