@@ -96,7 +96,7 @@ CREATE OR REPLACE TABLE SALESFORCE.POLICY (
     total_gross_written_premium_rollup__c       NUMBER(18, 4),
     sharepoint_folder__c                        VARCHAR,
     taxes_paid_by_brooker__c                    BOOLEAN,
-    surplus_lines_license_agent__c              VARCHAR(18),
+    surplus_lines_license_agent__c              VARCHAR,
     surplus_lines_license_number__c             VARCHAR,
     surplus_lines_license_state__c              VARCHAR,
     quote_prepared_by__c                        VARCHAR(18),
