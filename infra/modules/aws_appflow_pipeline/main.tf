@@ -190,4 +190,20 @@ resource "aws_cloudwatch_event_target" "appflow_error_chatbot" {
   rule      = aws_cloudwatch_event_rule.appflow_error[0].name
   target_id = "chatbot-sns"
   arn       = var.chatbot_alerts_topic_arn
+
+  input_transformer {
+    input_paths = {
+      flow_name = "$.detail.flow-name"
+      exec_id   = "$.detail.execution-id"
+      errors    = "$.detail.errors"
+    }
+    input_template = jsonencode({
+      version = "1.0"
+      source  = "custom"
+      content = {
+        title       = ":red_circle: AppFlow Pipeline Error"
+        description = "Flow <flow_name> failed (Execution ID: <exec_id>)\nErrors: <errors>"
+      }
+    })
+  }
 }
