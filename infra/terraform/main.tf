@@ -201,6 +201,7 @@ resource "aws_sns_topic_policy" "chatbot_alerts_eventbridge" {
     Version = "2012-10-17"
     Statement = [
       {
+        Sid       = "AllowAccountPublish"
         Effect    = "Allow"
         Principal = { AWS = "*" }
         Action    = "SNS:Publish"
@@ -212,6 +213,7 @@ resource "aws_sns_topic_policy" "chatbot_alerts_eventbridge" {
         }
       },
       {
+        Sid       = "AllowEventBridgePublish"
         Effect    = "Allow"
         Principal = { Service = "events.amazonaws.com" }
         Action    = "SNS:Publish"
