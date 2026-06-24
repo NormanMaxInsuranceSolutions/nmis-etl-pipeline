@@ -19,6 +19,11 @@ data "aws_secretsmanager_secret_version" "salesforce_appflow_connector" {
   secret_id = data.aws_secretsmanager_secret.salesforce_appflow_connector.id
 }
 
+# Chatbot
+data "aws_ssm_parameter" "chatbot_alerts_topic_arn" {
+  name = upper("/${var.app_prefix}/${terraform.workspace}/chatbot/sns_alerts_topic_arn")
+}
+
 # Snowflake
 data "aws_ssm_parameter" "snowpipe_sqs_arn" {
   name = upper("/${var.app_prefix}/${terraform.workspace}/${var.component}/snowpipe_sqs_arn")

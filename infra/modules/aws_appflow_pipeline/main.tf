@@ -136,3 +136,58 @@ resource "aws_appflow_flow" "this" {
     }
   }
 }
+
+############################
+####  Error Notifications  ####
+############################
+
+resource "aws_sns_topic" "error" {
+  count = var.enable_error_notifications ? 1 : 0
+  name  = "${var.name}-errors"
+  tags  = var.tags
+}
+
+resource "aws_sns_topic_policy" "error" {
+  count  = var.enable_error_notifications ? 1 : 0
+  arn    = aws_sns_topic.error[0].arn
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect    = "Allow"
+      Principal = { Service = "events.amazonaws.com" }
+      Action    = "SNS:Publish"
+      Resource  = aws_sns_topic.error[0].arn
+    }]
+  })
+}
+
+resource "aws_cloudwatch_event_rule" "appflow_error" {
+  count       = var.enable_error_notifications ? 1 : 0
+  name        = "${var.name}-error-rule"
+  description = "Fires when AppFlow flow ${var.name} fails"
+  tags        = var.tags
+
+  event_pattern = jsonencode({
+    source      = ["aws.appflow"]
+    "detail-type" = ["AppFlow End Flow Run Report"]
+    detail = {
+      "flow-name" = [var.name]
+      status      = ["Execution Failed"]
+    }
+  })
+}
+
+resource "aws_cloudwatch_event_target" "appflow_error_sns" {
+  count     = var.enable_error_notifications ? 1 : 0
+  rule      = aws_cloudwatch_event_rule.appflow_error[0].name
+  target_id = "sns"
+  arn       = aws_sns_topic.error[0].arn
+}
+
+resource "aws_cloudwatch_event_target" "appflow_error_chatbot" {
+  count     = var.enable_error_notifications && var.chatbot_alerts_topic_arn != null ? 1 : 0
+  rule      = aws_cloudwatch_event_rule.appflow_error[0].name
+  target_id = "chatbot-sns"
+  arn       = var.chatbot_alerts_topic_arn
+}

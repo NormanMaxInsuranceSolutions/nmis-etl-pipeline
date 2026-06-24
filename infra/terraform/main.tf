@@ -190,6 +190,37 @@ module "salesforce_connector" {
   }
 }
 
+##############################
+####    CHATBOT — IAM     ####
+##############################
+
+resource "aws_sns_topic_policy" "chatbot_alerts_eventbridge" {
+  arn = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect    = "Allow"
+        Principal = { AWS = "*" }
+        Action    = "SNS:Publish"
+        Resource  = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
+        Condition = {
+          StringEquals = {
+            "AWS:SourceOwner" = var.aws_account
+          }
+        }
+      },
+      {
+        Effect    = "Allow"
+        Principal = { Service = "events.amazonaws.com" }
+        Action    = "SNS:Publish"
+        Resource  = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
+      }
+    ]
+  })
+}
+
 ########################
 ####    Pipelines   ####
 ########################
@@ -201,8 +232,10 @@ module "salesforce_connector" {
 # salesforce sf_policy object -> S3 pipeline
 module "salesforce_policy_to_s3" {
   source   = "../modules/aws_appflow_pipeline"
-  name = "${local.name_prefix}-policy-sync"
-  tags = local.tags
+  name     = "${local.name_prefix}-policy-sync"
+  tags     = local.tags
+
+  chatbot_alerts_topic_arn = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
 
   source_connector_type         = "Salesforce"
   source_connector_profile_name = module.salesforce_connector.connector_profile_name
@@ -249,6 +282,8 @@ module "salesforce_structure_to_s3" {
   name   = "${local.name_prefix}-structure-sync"
   tags   = local.tags
 
+  chatbot_alerts_topic_arn = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
+
   source_connector_type         = "Salesforce"
   source_connector_profile_name = module.salesforce_connector.connector_profile_name
   source_config = {
@@ -292,6 +327,8 @@ module "salesforce_coverage_to_s3" {
   source = "../modules/aws_appflow_pipeline"
   name   = "${local.name_prefix}-coverage-sync"
   tags   = local.tags
+
+  chatbot_alerts_topic_arn = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
 
   source_connector_type         = "Salesforce"
   source_connector_profile_name = module.salesforce_connector.connector_profile_name
@@ -337,6 +374,8 @@ module "salesforce_calculation_location_to_s3" {
   name   = "${local.name_prefix}-calculation-location-sync"
   tags   = local.tags
 
+  chatbot_alerts_topic_arn = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
+
   source_connector_type         = "Salesforce"
   source_connector_profile_name = module.salesforce_connector.connector_profile_name
   source_config = {
@@ -380,6 +419,8 @@ module "salesforce_payout_to_s3" {
   source = "../modules/aws_appflow_pipeline"
   name   = "${local.name_prefix}-payout-sync"
   tags   = local.tags
+
+  chatbot_alerts_topic_arn = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
 
   source_connector_type         = "Salesforce"
   source_connector_profile_name = module.salesforce_connector.connector_profile_name
@@ -425,6 +466,8 @@ module "salesforce_payout_table_to_s3" {
   name   = "${local.name_prefix}-payout-table-sync"
   tags   = local.tags
 
+  chatbot_alerts_topic_arn = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
+
   source_connector_type         = "Salesforce"
   source_connector_profile_name = module.salesforce_connector.connector_profile_name
   source_config = {
@@ -468,6 +511,8 @@ module "salesforce_transaction_to_s3" {
   source = "../modules/aws_appflow_pipeline"
   name   = "${local.name_prefix}-transaction-sync"
   tags   = local.tags
+
+  chatbot_alerts_topic_arn = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
 
   source_connector_type         = "Salesforce"
   source_connector_profile_name = module.salesforce_connector.connector_profile_name
@@ -513,6 +558,8 @@ module "salesforce_schedule_to_s3" {
   name   = "${local.name_prefix}-schedule-sync"
   tags   = local.tags
 
+  chatbot_alerts_topic_arn = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
+
   source_connector_type         = "Salesforce"
   source_connector_profile_name = module.salesforce_connector.connector_profile_name
   source_config = {
@@ -556,6 +603,8 @@ module "salesforce_trigger_to_s3" {
   source = "../modules/aws_appflow_pipeline"
   name   = "${local.name_prefix}-trigger-sync"
   tags   = local.tags
+
+  chatbot_alerts_topic_arn = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
 
   source_connector_type         = "Salesforce"
   source_connector_profile_name = module.salesforce_connector.connector_profile_name

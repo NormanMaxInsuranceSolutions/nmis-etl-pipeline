@@ -118,3 +118,19 @@ variable "trigger" {
     }
   }
 }
+
+##############################
+##  Notification configuration  ##
+##############################
+
+variable "enable_error_notifications" {
+  type        = bool
+  default     = true
+  description = "Create an SNS topic and EventBridge rule to publish a message when the flow execution fails"
+}
+
+variable "chatbot_alerts_topic_arn" {
+  type        = string
+  default     = null
+  description = "ARN of the shared chatbot SNS alerts topic. When set, EventBridge will also publish failures there alongside the per-pipeline topic."
+}
