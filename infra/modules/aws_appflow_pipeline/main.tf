@@ -195,14 +195,19 @@ resource "aws_cloudwatch_event_target" "appflow_error_chatbot" {
     input_paths = {
       flow_name = "$.detail.flow-name"
       exec_id   = "$.detail.execution-id"
+      error     = "$.detail.error"
     }
-    input_template = jsonencode({
-      version = "1.0"
-      source  = "custom"
-      content = {
-        title       = ":red_circle: AppFlow Pipeline Error"
-        description = "Flow <flow_name> failed (Execution ID: <exec_id>)"
+    # Heredoc, not jsonencode: jsonencode rewrites < and > as unicode escapes, so
+    # EventBridge never sees the placeholders and Slack shows them literally.
+    input_template = <<-EOT
+      {
+        "version": "1.0",
+        "source": "custom",
+        "content": {
+          "title": ":red_circle: AppFlow Pipeline Error",
+          "description": "Flow <flow_name> failed (Execution ID: <exec_id>)\n*Error:* <error>"
+        }
       }
-    })
+    EOT
   }
 }
