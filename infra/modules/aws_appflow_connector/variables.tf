@@ -23,6 +23,8 @@ variable "credentials" {
       jwt_token              = optional(string)
       refresh_token          = optional(string)
       client_credentials_arn = optional(string)
+      // Alejandro @10/13/2026 NMIS-2102 Allow JWT bearer grant type
+      oauth2_grant_type = optional(string)
     }))
     zendesk = optional(object({
       access_token  = optional(string)
