@@ -3,9 +3,10 @@ resource "aws_appflow_connector_profile" "this" {
   connector_type  = var.connector_type
   connection_mode = var.connection_mode
 
-  lifecycle {
-    ignore_changes = [connector_profile_config[0].connector_profile_credentials]
-  }
+  // Alejandro @10/13/2026 NMIS-2102 Commented out so Terraform applies the JWT from Secrets Manager
+  // lifecycle {
+  //   ignore_changes = [connector_profile_config[0].connector_profile_credentials]
+  // }
 
   connector_profile_config {
     connector_profile_credentials {
@@ -16,6 +17,8 @@ resource "aws_appflow_connector_profile" "this" {
           jwt_token              = salesforce.value.jwt_token
           refresh_token          = salesforce.value.refresh_token
           client_credentials_arn = salesforce.value.client_credentials_arn
+          // Alejandro @10/13/2026 NMIS-2102 Pass OAuth grant type to AppFlow
+          oauth2_grant_type = salesforce.value.oauth2_grant_type
         }
       }
       dynamic "zendesk" {
