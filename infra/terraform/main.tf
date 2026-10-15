@@ -149,24 +149,25 @@ resource "aws_s3_bucket_public_access_block" "data_lake" {
 ####    APPFLOW — SALESFORCE Connection    ####
 ###############################################
 
-resource "aws_secretsmanager_secret_policy" "salesforce_appflow_connector" {
-  secret_arn = data.aws_secretsmanager_secret.salesforce_appflow_client_credentials.arn
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [{
-      Effect    = "Allow"
-      Principal = { Service = "appflow.amazonaws.com" }
-      Action    = "secretsmanager:GetSecretValue"
-      Resource  = "*"
-      Condition = {
-        StringEquals = {
-          "aws:SourceAccount" = var.aws_account
-        }
-      }
-    }]
-  })
-}
+// Alejandro @10/13/2026 NMIS-2102 Not needed with JWT bearer, AppFlow no longer reads the client credentials secret
+// resource "aws_secretsmanager_secret_policy" "salesforce_appflow_connector" {
+//   secret_arn = data.aws_secretsmanager_secret.salesforce_appflow_client_credentials.arn
+//
+//   policy = jsonencode({
+//     Version = "2012-10-17"
+//     Statement = [{
+//       Effect    = "Allow"
+//       Principal = { Service = "appflow.amazonaws.com" }
+//       Action    = "secretsmanager:GetSecretValue"
+//       Resource  = "*"
+//       Condition = {
+//         StringEquals = {
+//           "aws:SourceAccount" = var.aws_account
+//         }
+//       }
+//     }]
+//   })
+// }
 
 module "salesforce_connector" {
   source = "../modules/aws_appflow_connector"
@@ -176,9 +177,12 @@ module "salesforce_connector" {
 
   credentials = {
     salesforce = {
-      access_token           = jsondecode(data.aws_secretsmanager_secret_version.salesforce_appflow_connector.secret_string)["accessToken"]
-      refresh_token          = jsondecode(data.aws_secretsmanager_secret_version.salesforce_appflow_connector.secret_string)["refreshToken"]
-      client_credentials_arn = data.aws_secretsmanager_secret.salesforce_appflow_client_credentials.arn
+      // Alejandro @10/13/2026 NMIS-2102 Switched from Authorization Code to JWT bearer
+      // access_token           = jsondecode(data.aws_secretsmanager_secret_version.salesforce_appflow_connector.secret_string)["accessToken"]
+      // refresh_token          = jsondecode(data.aws_secretsmanager_secret_version.salesforce_appflow_connector.secret_string)["refreshToken"]
+      // client_credentials_arn = data.aws_secretsmanager_secret.salesforce_appflow_client_credentials.arn
+      jwt_token         = jsondecode(data.aws_secretsmanager_secret_version.salesforce_appflow_connector.secret_string)["jwtToken"]
+      oauth2_grant_type = "JWT_BEARER"
     }
   }
 
