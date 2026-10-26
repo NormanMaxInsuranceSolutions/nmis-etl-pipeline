@@ -15,6 +15,8 @@ resource "aws_appflow_flow" "this" {
             object                      = salesforce.value.object
             enable_dynamic_field_update = salesforce.value.enable_dynamic_field_update
             include_deleted_records     = salesforce.value.include_deleted_records
+            // Alejandro @10/22/2026 NMIS-2131 Salesforce API used to read records
+            data_transfer_api = salesforce.value.data_transfer_api
           }
         }
         dynamic "zendesk" {
@@ -76,6 +78,8 @@ resource "aws_appflow_flow" "this" {
               prefix_config {
                 prefix_type   = s3.value.prefix_type
                 prefix_format = s3.value.prefix_format
+                // Alejandro @10/22/2026 NMIS-2131 Optional path elements such as EXECUTION_ID
+                prefix_hierarchy = s3.value.prefix_hierarchy
               }
             }
           }
@@ -116,23 +120,44 @@ resource "aws_appflow_flow" "this" {
         scheduled {
           schedule_expression = trigger_properties.value.schedule_expression
           data_pull_mode      = trigger_properties.value.data_pull_mode
+          // Alejandro @10/22/2026 NMIS-2131 Same time zone and offset for every flow
+          timezone        = trigger_properties.value.timezone
+          schedule_offset = trigger_properties.value.schedule_offset
         }
       }
     }
   }
 
-  task {
-    task_type     = "Map_all"
-    source_fields = []
-    task_properties = {
-      "DESTINATION_DATA_TYPE" = "string"
+  // Alejandro @10/22/2026 NMIS-2131 Map_all only when no explicit tasks are given
+  dynamic "task" {
+    for_each = var.tasks == null ? [1] : []
+    content {
+      task_type     = "Map_all"
+      source_fields = []
+      task_properties = {
+        "DESTINATION_DATA_TYPE" = "string"
+      }
+      connector_operator {
+        salesforce  = var.source_connector_type == "Salesforce" ? "NO_OP" : null
+        zendesk     = var.source_connector_type == "Zendesk" ? "NO_OP" : null
+        service_now = var.source_connector_type == "ServiceNow" ? "NO_OP" : null
+        slack       = var.source_connector_type == "Slack" ? "NO_OP" : null
+        s3          = var.source_connector_type == "S3" ? "NO_OP" : null
+      }
     }
-    connector_operator {
-      salesforce  = var.source_connector_type == "Salesforce" ? "NO_OP" : null
-      zendesk     = var.source_connector_type == "Zendesk" ? "NO_OP" : null
-      service_now = var.source_connector_type == "ServiceNow" ? "NO_OP" : null
-      slack       = var.source_connector_type == "Slack" ? "NO_OP" : null
-      s3          = var.source_connector_type == "S3" ? "NO_OP" : null
+  }
+
+  // Alejandro @10/22/2026 NMIS-2131 Explicit field projection and mappings
+  dynamic "task" {
+    for_each = var.tasks != null ? var.tasks : []
+    content {
+      task_type         = task.value.task_type
+      source_fields     = task.value.source_fields
+      destination_field = task.value.destination_field
+      task_properties   = task.value.task_properties
+      connector_operator {
+        salesforce = var.source_connector_type == "Salesforce" ? task.value.connector_operator : null
+      }
     }
   }
 }

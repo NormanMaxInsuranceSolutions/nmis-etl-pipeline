@@ -31,6 +31,8 @@ variable "source_config" {
       object                      = string
       enable_dynamic_field_update = optional(bool, true)
       include_deleted_records     = optional(bool, true)
+      // Alejandro @10/22/2026 NMIS-2131 Salesforce API used to read records
+      data_transfer_api = optional(string)
     }))
     zendesk = optional(object({
       object = string
@@ -81,6 +83,8 @@ variable "destination_config" {
       aggregation_type = optional(string, "None")
       prefix_type      = optional(string, "PATH")
       prefix_format    = optional(string, "HOUR")
+      // Alejandro @10/22/2026 NMIS-2131 Optional path elements such as EXECUTION_ID
+      prefix_hierarchy = optional(list(string))
     }))
     redshift = optional(object({
       object             = string
@@ -98,6 +102,23 @@ variable "destination_config" {
   })
 }
 
+##########################
+##  Task configuration  ##
+##########################
+
+// Alejandro @10/22/2026 NMIS-2131 Allow explicit field mappings instead of Map_all
+variable "tasks" {
+  description = "Explicit flow tasks (field projection and mappings). Leave null to map all fields with Map_all."
+  type = list(object({
+    source_fields      = list(string)
+    connector_operator = string
+    destination_field  = optional(string)
+    task_type          = string
+    task_properties    = optional(map(string), {})
+  }))
+  default = null
+}
+
 #############################
 ##  Trigger configuration  ##
 #############################
@@ -109,6 +130,9 @@ variable "trigger" {
     scheduled = optional(object({
       schedule_expression = string
       data_pull_mode      = optional(string, "Incremental")
+      // Alejandro @10/22/2026 NMIS-2131 Same time zone and offset for every flow
+      timezone        = optional(string, "America/New_York")
+      schedule_offset = optional(number, 0)
     }))
   })
   default = {

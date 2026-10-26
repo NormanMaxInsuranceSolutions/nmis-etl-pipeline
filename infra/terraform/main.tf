@@ -25,6 +25,20 @@ locals {
     "APP"       = upper(var.app)
     "COMPONENT" = upper(var.component)
   }
+
+  // Alejandro @10/22/2026 NMIS-2131 Field mappings exported from AppFlow with describe-flow
+  console_flow_tasks = {
+    for name in ["attachment", "case", "email-message", "submission", "user"] :
+    name => [
+      for t in jsondecode(file("${path.module}/flows/${name}-sync.tasks.json")).tasks : {
+        source_fields      = t.sourceFields
+        connector_operator = t.connectorOperator.Salesforce
+        destination_field  = try(t.destinationField, null)
+        task_type          = t.taskType
+        task_properties    = t.taskProperties
+      }
+    ]
+  }
 }
 
 #############################
@@ -645,6 +659,308 @@ resource "terraform_data" "activate_trigger_flow" {
   provisioner "local-exec" {
     command = "aws appflow start-flow --flow-name ${module.salesforce_trigger_to_s3.flow_name} --region ${var.aws_region}"
   }
+}
+
+# ———————————————————————————————————————————————
+# —— - Salesforce Attachment -> S3 pipeline - ——
+# ———————————————————————————————————————————————
+
+// Alejandro @10/22/2026 NMIS-2131 Attachment flow, first created in AppFlow console
+module "salesforce_attachment_to_s3" {
+  source = "../modules/aws_appflow_pipeline"
+  name   = "${local.name_prefix}-attachment-sync"
+  tags   = local.tags
+
+  chatbot_alerts_topic_arn = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
+
+  source_connector_type         = "Salesforce"
+  source_connector_profile_name = module.salesforce_connector.connector_profile_name
+  source_config = {
+    salesforce = { object = "Attachment" }
+  }
+
+  incremental_pull_config = {
+    datetime_type_field_name = "LastModifiedDate"
+  }
+
+  destination_connector_type = "S3"
+  destination_config = {
+    s3 = {
+      bucket_name      = aws_s3_bucket.data_lake.bucket
+      bucket_prefix    = "raw/attachment"
+      prefix_hierarchy = ["EXECUTION_ID"]
+    }
+  }
+
+  trigger = {
+    type = "Scheduled"
+    scheduled = {
+      schedule_expression = var.appflow_schedule
+      data_pull_mode      = "Incremental"
+    }
+  }
+
+  tasks = local.console_flow_tasks["attachment"]
+}
+
+// Alejandro @10/22/2026 NMIS-2131 Activate attachment flow
+resource "terraform_data" "activate_attachment_flow" {
+  triggers_replace = [module.salesforce_attachment_to_s3.flow_arn]
+
+  provisioner "local-exec" {
+    command = "aws appflow start-flow --flow-name ${module.salesforce_attachment_to_s3.flow_name} --region ${var.aws_region}"
+  }
+}
+
+# —————————————————————————————————————————
+# —— - Salesforce Case -> S3 pipeline - ——
+# —————————————————————————————————————————
+
+// Alejandro @10/22/2026 NMIS-2131 Case flow, first created in AppFlow console
+module "salesforce_case_to_s3" {
+  source = "../modules/aws_appflow_pipeline"
+  name   = "${local.name_prefix}-case-sync"
+  tags   = local.tags
+
+  chatbot_alerts_topic_arn = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
+
+  source_connector_type         = "Salesforce"
+  source_connector_profile_name = module.salesforce_connector.connector_profile_name
+  source_config = {
+    salesforce = {
+      object            = "Case"
+      data_transfer_api = "AUTOMATIC"
+    }
+  }
+
+  incremental_pull_config = {
+    datetime_type_field_name = "LastModifiedDate"
+  }
+
+  destination_connector_type = "S3"
+  destination_config = {
+    s3 = {
+      bucket_name      = aws_s3_bucket.data_lake.bucket
+      bucket_prefix    = "raw/case"
+      prefix_hierarchy = ["EXECUTION_ID"]
+    }
+  }
+
+  trigger = {
+    type = "Scheduled"
+    scheduled = {
+      schedule_expression = var.appflow_schedule
+      data_pull_mode      = "Incremental"
+    }
+  }
+
+  tasks = local.console_flow_tasks["case"]
+}
+
+// Alejandro @10/22/2026 NMIS-2131 Activate case flow
+resource "terraform_data" "activate_case_flow" {
+  triggers_replace = [module.salesforce_case_to_s3.flow_arn]
+
+  provisioner "local-exec" {
+    command = "aws appflow start-flow --flow-name ${module.salesforce_case_to_s3.flow_name} --region ${var.aws_region}"
+  }
+}
+
+# ——————————————————————————————————————————————————
+# —— - Salesforce Email Message -> S3 pipeline - ——
+# ——————————————————————————————————————————————————
+
+// Alejandro @10/22/2026 NMIS-2131 Email message flow, first created in AppFlow console
+module "salesforce_email_message_to_s3" {
+  source = "../modules/aws_appflow_pipeline"
+  name   = "${local.name_prefix}-email-message-sync"
+  tags   = local.tags
+
+  chatbot_alerts_topic_arn = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
+
+  source_connector_type         = "Salesforce"
+  source_connector_profile_name = module.salesforce_connector.connector_profile_name
+  source_config = {
+    salesforce = {
+      object            = "EmailMessage"
+      data_transfer_api = "AUTOMATIC"
+    }
+  }
+
+  incremental_pull_config = {
+    datetime_type_field_name = "LastModifiedDate"
+  }
+
+  destination_connector_type = "S3"
+  destination_config = {
+    s3 = {
+      bucket_name      = aws_s3_bucket.data_lake.bucket
+      bucket_prefix    = "raw/email_message"
+      prefix_hierarchy = ["EXECUTION_ID"]
+    }
+  }
+
+  trigger = {
+    type = "Scheduled"
+    scheduled = {
+      schedule_expression = var.appflow_schedule
+      data_pull_mode      = "Incremental"
+    }
+  }
+
+  tasks = local.console_flow_tasks["email-message"]
+}
+
+// Alejandro @10/22/2026 NMIS-2131 Activate email message flow
+resource "terraform_data" "activate_email_message_flow" {
+  triggers_replace = [module.salesforce_email_message_to_s3.flow_arn]
+
+  provisioner "local-exec" {
+    command = "aws appflow start-flow --flow-name ${module.salesforce_email_message_to_s3.flow_name} --region ${var.aws_region}"
+  }
+}
+
+# ———————————————————————————————————————————————
+# —— - Salesforce Submission -> S3 pipeline - ——
+# ———————————————————————————————————————————————
+
+// Alejandro @10/22/2026 NMIS-2131 Submission (Opportunity) flow, first created in AppFlow console
+module "salesforce_submission_to_s3" {
+  source = "../modules/aws_appflow_pipeline"
+  name   = "${local.name_prefix}-submission-sync"
+  tags   = local.tags
+
+  chatbot_alerts_topic_arn = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
+
+  source_connector_type         = "Salesforce"
+  source_connector_profile_name = module.salesforce_connector.connector_profile_name
+  source_config = {
+    salesforce = {
+      object            = "Opportunity"
+      data_transfer_api = "AUTOMATIC"
+    }
+  }
+
+  incremental_pull_config = {
+    datetime_type_field_name = "LastModifiedDate"
+  }
+
+  destination_connector_type = "S3"
+  destination_config = {
+    s3 = {
+      bucket_name      = aws_s3_bucket.data_lake.bucket
+      bucket_prefix    = "raw/submission"
+      prefix_hierarchy = ["EXECUTION_ID"]
+    }
+  }
+
+  trigger = {
+    type = "Scheduled"
+    scheduled = {
+      schedule_expression = var.appflow_schedule
+      data_pull_mode      = "Incremental"
+    }
+  }
+
+  tasks = local.console_flow_tasks["submission"]
+}
+
+// Alejandro @10/22/2026 NMIS-2131 Activate submission flow
+resource "terraform_data" "activate_submission_flow" {
+  triggers_replace = [module.salesforce_submission_to_s3.flow_arn]
+
+  provisioner "local-exec" {
+    command = "aws appflow start-flow --flow-name ${module.salesforce_submission_to_s3.flow_name} --region ${var.aws_region}"
+  }
+}
+
+# —————————————————————————————————————————
+# —— - Salesforce User -> S3 pipeline - ——
+# —————————————————————————————————————————
+
+// Alejandro @10/22/2026 NMIS-2131 User flow, first created in AppFlow console
+module "salesforce_user_to_s3" {
+  source = "../modules/aws_appflow_pipeline"
+  name   = "${local.name_prefix}-user-sync"
+  tags   = local.tags
+
+  chatbot_alerts_topic_arn = data.aws_ssm_parameter.chatbot_alerts_topic_arn.value
+
+  source_connector_type         = "Salesforce"
+  source_connector_profile_name = module.salesforce_connector.connector_profile_name
+  source_config = {
+    salesforce = {
+      object            = "User"
+      data_transfer_api = "AUTOMATIC"
+    }
+  }
+
+  incremental_pull_config = {
+    datetime_type_field_name = "LastModifiedDate"
+  }
+
+  destination_connector_type = "S3"
+  destination_config = {
+    s3 = {
+      bucket_name      = aws_s3_bucket.data_lake.bucket
+      bucket_prefix    = "raw/user"
+      prefix_hierarchy = ["EXECUTION_ID"]
+    }
+  }
+
+  trigger = {
+    type = "Scheduled"
+    scheduled = {
+      schedule_expression = "rate(1 hours)"
+      data_pull_mode      = "Incremental"
+    }
+  }
+
+  tasks = local.console_flow_tasks["user"]
+}
+
+// Alejandro @10/22/2026 NMIS-2131 Activate user flow
+resource "terraform_data" "activate_user_flow" {
+  triggers_replace = [module.salesforce_user_to_s3.flow_arn]
+
+  provisioner "local-exec" {
+    command = "aws appflow start-flow --flow-name ${module.salesforce_user_to_s3.flow_name} --region ${var.aws_region}"
+  }
+}
+
+# —————————————————————————————————————————————————————
+# —— - Import console-created flows (prod only) - ——
+# —————————————————————————————————————————————————————
+
+// Alejandro @10/22/2026 NMIS-2131 Flows already exist in prod; Terraform adopts them instead of creating them
+import {
+  for_each = terraform.workspace == "prod" ? toset(["attachment"]) : toset([])
+  to       = module.salesforce_attachment_to_s3.aws_appflow_flow.this
+  id       = "${local.name_prefix}-attachment-sync"
+}
+
+import {
+  for_each = terraform.workspace == "prod" ? toset(["case"]) : toset([])
+  to       = module.salesforce_case_to_s3.aws_appflow_flow.this
+  id       = "${local.name_prefix}-case-sync"
+}
+
+import {
+  for_each = terraform.workspace == "prod" ? toset(["email-message"]) : toset([])
+  to       = module.salesforce_email_message_to_s3.aws_appflow_flow.this
+  id       = "${local.name_prefix}-email-message-sync"
+}
+
+import {
+  for_each = terraform.workspace == "prod" ? toset(["submission"]) : toset([])
+  to       = module.salesforce_submission_to_s3.aws_appflow_flow.this
+  id       = "${local.name_prefix}-submission-sync"
+}
+
+import {
+  for_each = terraform.workspace == "prod" ? toset(["user"]) : toset([])
+  to       = module.salesforce_user_to_s3.aws_appflow_flow.this
+  id       = "${local.name_prefix}-user-sync"
 }
 
 # S3 → Snowflake Snowpipe notifications
