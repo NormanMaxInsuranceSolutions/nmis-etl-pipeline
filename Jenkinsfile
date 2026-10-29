@@ -31,11 +31,13 @@ node {
 
             stage("Terraform: Plan & Apply") {
                 sh 'cd ./infra/terraform && terraform plan -out=tfplan'
+                // Alejandro @10/26/2026 NMIS-2131 Stop before apply if a fixed AppFlow field list does not match target Salesforce org
+                sh 'cd ./infra/terraform && terraform show -json tfplan > tfplan.json && python3 ../scripts/validate_appflow_field_mappings.py tfplan.json'
                 timeout(time: 15, unit: 'MINUTES') {
                     input message: 'Complete deployment? Review the plan output above before approving.', ok: 'Deploy'
                 }
                 sh 'cd ./infra/terraform && terraform apply -auto-approve tfplan'
-                sh 'cd ./infra/terraform && rm -f tfplan'
+                sh 'cd ./infra/terraform && rm -f tfplan tfplan.json'
             }
         }
 
