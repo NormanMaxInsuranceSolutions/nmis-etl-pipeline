@@ -75,7 +75,7 @@ def main():
     entities = {}
     for flow, connector_profile, entity, fields in flows:
         if not connector_profile:
-            print(f"{flow}: connector profile not known at plan time, skipped")
+            failures.append(f"{flow}: connector profile name not found in Terraform plan, fields could not be checked")
             continue
 
         key = (connector_profile, entity)

@@ -156,7 +156,11 @@ resource "aws_appflow_flow" "this" {
       destination_field = task.value.destination_field
       task_properties   = task.value.task_properties
       connector_operator {
-        salesforce = var.source_connector_type == "Salesforce" ? task.value.connector_operator : null
+        salesforce  = var.source_connector_type == "Salesforce" ? task.value.connector_operator : null
+        zendesk     = var.source_connector_type == "Zendesk" ? task.value.connector_operator : null
+        service_now = var.source_connector_type == "ServiceNow" ? task.value.connector_operator : null
+        slack       = var.source_connector_type == "Slack" ? task.value.connector_operator : null
+        s3          = var.source_connector_type == "S3" ? task.value.connector_operator : null
       }
     }
   }

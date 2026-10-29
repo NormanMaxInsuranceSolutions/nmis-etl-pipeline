@@ -288,7 +288,8 @@ resource "terraform_data" "activate_policy_flow" {
   triggers_replace = [module.salesforce_policy_to_s3.flow_arn]
 
   provisioner "local-exec" {
-    command = "aws appflow start-flow --flow-name ${module.salesforce_policy_to_s3.flow_name} --region ${var.aws_region}"
+    // Alejandro @10/26/2026 NMIS-2131 Start flow only when it is not already active
+    command = "sh ${path.module}/../scripts/start_appflow_flow.sh ${module.salesforce_policy_to_s3.flow_name} ${var.aws_region}"
   }
 }
 
@@ -335,7 +336,8 @@ resource "terraform_data" "activate_structure_flow" {
   triggers_replace = [module.salesforce_structure_to_s3.flow_arn]
 
   provisioner "local-exec" {
-    command = "aws appflow start-flow --flow-name ${module.salesforce_structure_to_s3.flow_name} --region ${var.aws_region}"
+    // Alejandro @10/26/2026 NMIS-2131 Start flow only when it is not already active
+    command = "sh ${path.module}/../scripts/start_appflow_flow.sh ${module.salesforce_structure_to_s3.flow_name} ${var.aws_region}"
   }
 }
 
@@ -381,7 +383,8 @@ resource "terraform_data" "activate_coverage_flow" {
   triggers_replace = [module.salesforce_coverage_to_s3.flow_arn]
 
   provisioner "local-exec" {
-    command = "aws appflow start-flow --flow-name ${module.salesforce_coverage_to_s3.flow_name} --region ${var.aws_region}"
+    // Alejandro @10/26/2026 NMIS-2131 Start flow only when it is not already active
+    command = "sh ${path.module}/../scripts/start_appflow_flow.sh ${module.salesforce_coverage_to_s3.flow_name} ${var.aws_region}"
   }
 }
 
@@ -427,7 +430,8 @@ resource "terraform_data" "activate_calculation_location_flow" {
   triggers_replace = [module.salesforce_calculation_location_to_s3.flow_arn]
 
   provisioner "local-exec" {
-    command = "aws appflow start-flow --flow-name ${module.salesforce_calculation_location_to_s3.flow_name} --region ${var.aws_region}"
+    // Alejandro @10/26/2026 NMIS-2131 Start flow only when it is not already active
+    command = "sh ${path.module}/../scripts/start_appflow_flow.sh ${module.salesforce_calculation_location_to_s3.flow_name} ${var.aws_region}"
   }
 }
 
@@ -473,7 +477,8 @@ resource "terraform_data" "activate_payout_flow" {
   triggers_replace = [module.salesforce_payout_to_s3.flow_arn]
 
   provisioner "local-exec" {
-    command = "aws appflow start-flow --flow-name ${module.salesforce_payout_to_s3.flow_name} --region ${var.aws_region}"
+    // Alejandro @10/26/2026 NMIS-2131 Start flow only when it is not already active
+    command = "sh ${path.module}/../scripts/start_appflow_flow.sh ${module.salesforce_payout_to_s3.flow_name} ${var.aws_region}"
   }
 }
 
@@ -519,7 +524,8 @@ resource "terraform_data" "activate_payout_table_flow" {
   triggers_replace = [module.salesforce_payout_table_to_s3.flow_arn]
 
   provisioner "local-exec" {
-    command = "aws appflow start-flow --flow-name ${module.salesforce_payout_table_to_s3.flow_name} --region ${var.aws_region}"
+    // Alejandro @10/26/2026 NMIS-2131 Start flow only when it is not already active
+    command = "sh ${path.module}/../scripts/start_appflow_flow.sh ${module.salesforce_payout_table_to_s3.flow_name} ${var.aws_region}"
   }
 }
 
@@ -565,7 +571,8 @@ resource "terraform_data" "activate_transaction_flow" {
   triggers_replace = [module.salesforce_transaction_to_s3.flow_arn]
 
   provisioner "local-exec" {
-    command = "aws appflow start-flow --flow-name ${module.salesforce_transaction_to_s3.flow_name} --region ${var.aws_region}"
+    // Alejandro @10/26/2026 NMIS-2131 Start flow only when it is not already active
+    command = "sh ${path.module}/../scripts/start_appflow_flow.sh ${module.salesforce_transaction_to_s3.flow_name} ${var.aws_region}"
   }
 }
 
@@ -611,7 +618,8 @@ resource "terraform_data" "activate_schedule_flow" {
   triggers_replace = [module.salesforce_schedule_to_s3.flow_arn]
 
   provisioner "local-exec" {
-    command = "aws appflow start-flow --flow-name ${module.salesforce_schedule_to_s3.flow_name} --region ${var.aws_region}"
+    // Alejandro @10/26/2026 NMIS-2131 Start flow only when it is not already active
+    command = "sh ${path.module}/../scripts/start_appflow_flow.sh ${module.salesforce_schedule_to_s3.flow_name} ${var.aws_region}"
   }
 }
 
@@ -657,7 +665,8 @@ resource "terraform_data" "activate_trigger_flow" {
   triggers_replace = [module.salesforce_trigger_to_s3.flow_arn]
 
   provisioner "local-exec" {
-    command = "aws appflow start-flow --flow-name ${module.salesforce_trigger_to_s3.flow_name} --region ${var.aws_region}"
+    // Alejandro @10/26/2026 NMIS-2131 Start flow only when it is not already active
+    command = "sh ${path.module}/../scripts/start_appflow_flow.sh ${module.salesforce_trigger_to_s3.flow_name} ${var.aws_region}"
   }
 }
 
@@ -676,7 +685,11 @@ module "salesforce_attachment_to_s3" {
   source_connector_type         = "Salesforce"
   source_connector_profile_name = module.salesforce_connector.connector_profile_name
   source_config = {
-    salesforce = { object = "Attachment" }
+    salesforce = {
+      object = "Attachment"
+      // Field list is kept in flows/, so AppFlow must not add new fields on its own
+      enable_dynamic_field_update = false
+    }
   }
 
   incremental_pull_config = {
@@ -708,7 +721,7 @@ resource "terraform_data" "activate_attachment_flow" {
   triggers_replace = [module.salesforce_attachment_to_s3.flow_arn]
 
   provisioner "local-exec" {
-    command = "aws appflow start-flow --flow-name ${module.salesforce_attachment_to_s3.flow_name} --region ${var.aws_region}"
+    command = "sh ${path.module}/../scripts/start_appflow_flow.sh ${module.salesforce_attachment_to_s3.flow_name} ${var.aws_region}"
   }
 }
 
@@ -730,6 +743,8 @@ module "salesforce_case_to_s3" {
     salesforce = {
       object            = "Case"
       data_transfer_api = "AUTOMATIC"
+      // Field list is kept in flows/, so AppFlow must not add new fields on its own
+      enable_dynamic_field_update = false
     }
   }
 
@@ -762,7 +777,7 @@ resource "terraform_data" "activate_case_flow" {
   triggers_replace = [module.salesforce_case_to_s3.flow_arn]
 
   provisioner "local-exec" {
-    command = "aws appflow start-flow --flow-name ${module.salesforce_case_to_s3.flow_name} --region ${var.aws_region}"
+    command = "sh ${path.module}/../scripts/start_appflow_flow.sh ${module.salesforce_case_to_s3.flow_name} ${var.aws_region}"
   }
 }
 
@@ -784,6 +799,8 @@ module "salesforce_email_message_to_s3" {
     salesforce = {
       object            = "EmailMessage"
       data_transfer_api = "AUTOMATIC"
+      // Field list is kept in flows/, so AppFlow must not add new fields on its own
+      enable_dynamic_field_update = false
     }
   }
 
@@ -816,7 +833,7 @@ resource "terraform_data" "activate_email_message_flow" {
   triggers_replace = [module.salesforce_email_message_to_s3.flow_arn]
 
   provisioner "local-exec" {
-    command = "aws appflow start-flow --flow-name ${module.salesforce_email_message_to_s3.flow_name} --region ${var.aws_region}"
+    command = "sh ${path.module}/../scripts/start_appflow_flow.sh ${module.salesforce_email_message_to_s3.flow_name} ${var.aws_region}"
   }
 }
 
@@ -838,6 +855,8 @@ module "salesforce_submission_to_s3" {
     salesforce = {
       object            = "Opportunity"
       data_transfer_api = "AUTOMATIC"
+      // Field list is kept in flows/, so AppFlow must not add new fields on its own
+      enable_dynamic_field_update = false
     }
   }
 
@@ -870,7 +889,7 @@ resource "terraform_data" "activate_submission_flow" {
   triggers_replace = [module.salesforce_submission_to_s3.flow_arn]
 
   provisioner "local-exec" {
-    command = "aws appflow start-flow --flow-name ${module.salesforce_submission_to_s3.flow_name} --region ${var.aws_region}"
+    command = "sh ${path.module}/../scripts/start_appflow_flow.sh ${module.salesforce_submission_to_s3.flow_name} ${var.aws_region}"
   }
 }
 
@@ -892,6 +911,8 @@ module "salesforce_user_to_s3" {
     salesforce = {
       object            = "User"
       data_transfer_api = "AUTOMATIC"
+      // Field list is kept in flows/, so AppFlow must not add new fields on its own
+      enable_dynamic_field_update = false
     }
   }
 
@@ -924,7 +945,7 @@ resource "terraform_data" "activate_user_flow" {
   triggers_replace = [module.salesforce_user_to_s3.flow_arn]
 
   provisioner "local-exec" {
-    command = "aws appflow start-flow --flow-name ${module.salesforce_user_to_s3.flow_name} --region ${var.aws_region}"
+    command = "sh ${path.module}/../scripts/start_appflow_flow.sh ${module.salesforce_user_to_s3.flow_name} ${var.aws_region}"
   }
 }
 
