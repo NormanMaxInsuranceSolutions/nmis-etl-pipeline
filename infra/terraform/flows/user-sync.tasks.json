@@ -1,0 +1,2685 @@
+{
+    "tasks": [
+        {
+            "sourceFields": [
+                "Id",
+                "Username",
+                "LastName",
+                "FirstName",
+                "MiddleName",
+                "Suffix",
+                "Name",
+                "CompanyName",
+                "Division",
+                "Department",
+                "Title",
+                "Street",
+                "City",
+                "State",
+                "PostalCode",
+                "Country",
+                "StateCode",
+                "CountryCode",
+                "Latitude",
+                "Longitude",
+                "GeocodeAccuracy",
+                "Address",
+                "Email",
+                "EmailPreferencesAutoBcc",
+                "EmailPreferencesAutoBccStayInTouch",
+                "EmailPreferencesStayInTouchReminder",
+                "SenderEmail",
+                "SenderName",
+                "Signature",
+                "StayInTouchSubject",
+                "StayInTouchSignature",
+                "StayInTouchNote",
+                "Phone",
+                "Fax",
+                "MobilePhone",
+                "Alias",
+                "CommunityNickname",
+                "BadgeText",
+                "IsActive",
+                "TimeZoneSidKey",
+                "LocaleSidKey",
+                "ReceivesInfoEmails",
+                "ReceivesAdminInfoEmails",
+                "EmailEncodingKey",
+                "UserType",
+                "StartDay",
+                "EndDay",
+                "LanguageLocaleKey",
+                "EmployeeNumber",
+                "DelegatedApproverId",
+                "ManagerId",
+                "LastLoginDate",
+                "CreatedDate",
+                "CreatedById",
+                "LastModifiedDate",
+                "LastModifiedById",
+                "SystemModstamp",
+                "PasswordExpirationDate",
+                "SuAccessExpirationDate",
+                "OfflineTrialExpirationDate",
+                "OfflinePdaTrialExpirationDate",
+                "UserPermissionsMarketingUser",
+                "UserPermissionsOfflineUser",
+                "UserPermissionsAvantgoUser",
+                "UserPermissionsCallCenterAutoLogin",
+                "UserPermissionsSFContentUser",
+                "UserPermissionsInteractionUser",
+                "UserPermissionsSupportUser",
+                "ForecastEnabled",
+                "UserPreferencesActivityRemindersPopup",
+                "UserPreferencesEventRemindersCheckboxDefault",
+                "UserPreferencesTaskRemindersCheckboxDefault",
+                "UserPreferencesReminderSoundOff",
+                "UserPreferencesDisableAllFeedsEmail",
+                "UserPreferencesDisableFollowersEmail",
+                "UserPreferencesDisableProfilePostEmail",
+                "UserPreferencesDisableChangeCommentEmail",
+                "UserPreferencesDisableLaterCommentEmail",
+                "UserPreferencesDisProfPostCommentEmail",
+                "UserPreferencesHideCSNGetChatterMobileTask",
+                "UserPreferencesDisableMentionsPostEmail",
+                "UserPreferencesDisMentionsCommentEmail",
+                "UserPreferencesHideCSNDesktopTask",
+                "UserPreferencesHideChatterOnboardingSplash",
+                "UserPreferencesHideSecondChatterOnboardingSplash",
+                "UserPreferencesDisCommentAfterLikeEmail",
+                "UserPreferencesDisableLikeEmail",
+                "UserPreferencesSortFeedByComment",
+                "UserPreferencesDisableMessageEmail",
+                "UserPreferencesDismissRecordChannelsSuggestedObjects",
+                "UserPreferencesDisableBookmarkEmail",
+                "UserPreferencesDisableSharePostEmail",
+                "UserPreferencesActionLauncherEinsteinGptConsent",
+                "UserPreferencesAssistiveActionsEnabledInActionLauncher",
+                "UserPreferencesEnableAutoSubForFeeds",
+                "UserPreferencesDisableFileShareNotificationsForApi",
+                "UserPreferencesEnableLwrLexPilot",
+                "UserPreferencesShowTitleToExternalUsers",
+                "UserPreferencesShowManagerToExternalUsers",
+                "UserPreferencesShowEmailToExternalUsers",
+                "UserPreferencesShowWorkPhoneToExternalUsers",
+                "UserPreferencesShowMobilePhoneToExternalUsers",
+                "UserPreferencesShowFaxToExternalUsers",
+                "UserPreferencesShowStreetAddressToExternalUsers",
+                "UserPreferencesShowCityToExternalUsers",
+                "UserPreferencesShowStateToExternalUsers",
+                "UserPreferencesShowPostalCodeToExternalUsers",
+                "UserPreferencesShowCountryToExternalUsers",
+                "UserPreferencesShowProfilePicToGuestUsers",
+                "UserPreferencesShowTitleToGuestUsers",
+                "UserPreferencesShowCityToGuestUsers",
+                "UserPreferencesShowStateToGuestUsers",
+                "UserPreferencesShowPostalCodeToGuestUsers",
+                "UserPreferencesShowCountryToGuestUsers",
+                "UserPreferencesShowForecastingChangeSignals",
+                "UserPreferencesLiveAgentMiawSetupDeflection",
+                "UserPreferencesHideS1BrowserUI",
+                "UserPreferencesDisableEndorsementEmail",
+                "UserPreferencesPathAssistantCollapsed",
+                "UserPreferencesCacheDiagnostics",
+                "UserPreferencesShowEmailToGuestUsers",
+                "UserPreferencesShowManagerToGuestUsers",
+                "UserPreferencesShowWorkPhoneToGuestUsers",
+                "UserPreferencesShowMobilePhoneToGuestUsers",
+                "UserPreferencesShowFaxToGuestUsers",
+                "UserPreferencesShowStreetAddressToGuestUsers",
+                "UserPreferencesLightningExperiencePreferred",
+                "UserPreferencesHideEndUserOnboardingAssistantModal",
+                "UserPreferencesHideLightningMigrationModal",
+                "UserPreferencesHideSfxWelcomeMat",
+                "UserPreferencesHideBiggerPhotoCallout",
+                "UserPreferencesGlobalNavBarWTShown",
+                "UserPreferencesGlobalNavGridMenuWTShown",
+                "UserPreferencesCreateLEXAppsWTShown",
+                "UserPreferencesFavoritesWTShown",
+                "UserPreferencesRecordHomeSectionCollapseWTShown",
+                "UserPreferencesRecordHomeReservedWTShown",
+                "UserPreferencesFavoritesShowTopFavorites",
+                "UserPreferencesExcludeMailAppAttachments",
+                "UserPreferencesSuppressTaskSFXReminders",
+                "UserPreferencesSuppressEventSFXReminders",
+                "UserPreferencesPreviewCustomTheme",
+                "UserPreferencesHasCelebrationBadge",
+                "UserPreferencesUserDebugModePref",
+                "UserPreferencesSRHOverrideActivities",
+                "UserPreferencesHasSentWarningEmail",
+                "UserPreferencesHasSentWarningEmail238",
+                "UserPreferencesHasSentWarningEmail240",
+                "UserPreferencesDismissPersonalSpaceLegalMessage",
+                "UserPreferencesDismissReuseUpdateReminderModal",
+                "UserPreferencesHideBrowseProductRedirectConfirmation",
+                "UserPreferencesHideOnlineSalesAppTabVisibilityRequirementsModal",
+                "UserPreferencesHideOnlineSalesAppWelcomeMat",
+                "UserPreferencesHideManagedEcaMobilePubModal",
+                "UserPreferencesShowForecastingRoundedAmounts",
+                "HasUserVerifiedPhone",
+                "HasUserVerifiedEmail",
+                "ContactId",
+                "AccountId",
+                "CallCenterId",
+                "Extension",
+                "FederationIdentifier",
+                "AboutMe",
+                "FullPhotoUrl",
+                "SmallPhotoUrl",
+                "IsExtIndicatorVisible",
+                "OutOfOfficeMessage",
+                "MediumPhotoUrl",
+                "DigestFrequency",
+                "DefaultGroupNotificationFrequency",
+                "LastViewedDate",
+                "LastReferencedDate",
+                "BannerPhotoUrl",
+                "SmallBannerPhotoUrl",
+                "MediumBannerPhotoUrl",
+                "IsProfilePhotoActive",
+                "Replace_Email__c",
+                "UserPreferencesNewLightningReportRunPageEnabled"
+            ],
+            "connectorOperator": {
+                "Salesforce": "PROJECTION"
+            },
+            "taskType": "Filter",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "Id"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Id",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "id"
+            }
+        },
+        {
+            "sourceFields": [
+                "Username"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Username",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "LastName"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "LastName",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "FirstName"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "FirstName",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "MiddleName"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "MiddleName",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "Suffix"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Suffix",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "Name"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Name",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "CompanyName"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "CompanyName",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "Division"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Division",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "Department"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Department",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "Title"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Title",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "Street"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Street",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "textarea"
+            }
+        },
+        {
+            "sourceFields": [
+                "City"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "City",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "State"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "State",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "PostalCode"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "PostalCode",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "Country"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Country",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "StateCode"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "StateCode",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "picklist"
+            }
+        },
+        {
+            "sourceFields": [
+                "CountryCode"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "CountryCode",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "picklist"
+            }
+        },
+        {
+            "sourceFields": [
+                "Latitude"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Latitude",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "double"
+            }
+        },
+        {
+            "sourceFields": [
+                "Longitude"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Longitude",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "double"
+            }
+        },
+        {
+            "sourceFields": [
+                "GeocodeAccuracy"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "GeocodeAccuracy",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "picklist"
+            }
+        },
+        {
+            "sourceFields": [
+                "Address"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Address",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "address"
+            }
+        },
+        {
+            "sourceFields": [
+                "Email"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Email",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "email"
+            }
+        },
+        {
+            "sourceFields": [
+                "EmailPreferencesAutoBcc"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "EmailPreferencesAutoBcc",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "EmailPreferencesAutoBccStayInTouch"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "EmailPreferencesAutoBccStayInTouch",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "EmailPreferencesStayInTouchReminder"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "EmailPreferencesStayInTouchReminder",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "SenderEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "SenderEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "email"
+            }
+        },
+        {
+            "sourceFields": [
+                "SenderName"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "SenderName",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "Signature"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Signature",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "textarea"
+            }
+        },
+        {
+            "sourceFields": [
+                "StayInTouchSubject"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "StayInTouchSubject",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "StayInTouchSignature"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "StayInTouchSignature",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "textarea"
+            }
+        },
+        {
+            "sourceFields": [
+                "StayInTouchNote"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "StayInTouchNote",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "Phone"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Phone",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "phone"
+            }
+        },
+        {
+            "sourceFields": [
+                "Fax"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Fax",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "phone"
+            }
+        },
+        {
+            "sourceFields": [
+                "MobilePhone"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "MobilePhone",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "phone"
+            }
+        },
+        {
+            "sourceFields": [
+                "Alias"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Alias",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "CommunityNickname"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "CommunityNickname",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "BadgeText"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "BadgeText",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "IsActive"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "IsActive",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "TimeZoneSidKey"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "TimeZoneSidKey",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "picklist"
+            }
+        },
+        {
+            "sourceFields": [
+                "LocaleSidKey"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "LocaleSidKey",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "picklist"
+            }
+        },
+        {
+            "sourceFields": [
+                "ReceivesInfoEmails"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "ReceivesInfoEmails",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "ReceivesAdminInfoEmails"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "ReceivesAdminInfoEmails",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "EmailEncodingKey"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "EmailEncodingKey",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "picklist"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserType"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserType",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "picklist"
+            }
+        },
+        {
+            "sourceFields": [
+                "StartDay"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "StartDay",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "picklist"
+            }
+        },
+        {
+            "sourceFields": [
+                "EndDay"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "EndDay",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "picklist"
+            }
+        },
+        {
+            "sourceFields": [
+                "LanguageLocaleKey"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "LanguageLocaleKey",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "picklist"
+            }
+        },
+        {
+            "sourceFields": [
+                "EmployeeNumber"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "EmployeeNumber",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "DelegatedApproverId"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "DelegatedApproverId",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "reference"
+            }
+        },
+        {
+            "sourceFields": [
+                "ManagerId"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "ManagerId",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "reference"
+            }
+        },
+        {
+            "sourceFields": [
+                "LastLoginDate"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "LastLoginDate",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "datetime"
+            }
+        },
+        {
+            "sourceFields": [
+                "CreatedDate"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "CreatedDate",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "datetime"
+            }
+        },
+        {
+            "sourceFields": [
+                "CreatedById"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "CreatedById",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "reference"
+            }
+        },
+        {
+            "sourceFields": [
+                "LastModifiedDate"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "LastModifiedDate",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "datetime"
+            }
+        },
+        {
+            "sourceFields": [
+                "LastModifiedById"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "LastModifiedById",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "reference"
+            }
+        },
+        {
+            "sourceFields": [
+                "SystemModstamp"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "SystemModstamp",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "datetime"
+            }
+        },
+        {
+            "sourceFields": [
+                "PasswordExpirationDate"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "PasswordExpirationDate",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "datetime"
+            }
+        },
+        {
+            "sourceFields": [
+                "SuAccessExpirationDate"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "SuAccessExpirationDate",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "date"
+            }
+        },
+        {
+            "sourceFields": [
+                "OfflineTrialExpirationDate"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "OfflineTrialExpirationDate",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "datetime"
+            }
+        },
+        {
+            "sourceFields": [
+                "OfflinePdaTrialExpirationDate"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "OfflinePdaTrialExpirationDate",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "datetime"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPermissionsMarketingUser"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPermissionsMarketingUser",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPermissionsOfflineUser"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPermissionsOfflineUser",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPermissionsAvantgoUser"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPermissionsAvantgoUser",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPermissionsCallCenterAutoLogin"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPermissionsCallCenterAutoLogin",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPermissionsSFContentUser"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPermissionsSFContentUser",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPermissionsInteractionUser"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPermissionsInteractionUser",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPermissionsSupportUser"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPermissionsSupportUser",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "ForecastEnabled"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "ForecastEnabled",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesActivityRemindersPopup"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesActivityRemindersPopup",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesEventRemindersCheckboxDefault"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesEventRemindersCheckboxDefault",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesTaskRemindersCheckboxDefault"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesTaskRemindersCheckboxDefault",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesReminderSoundOff"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesReminderSoundOff",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDisableAllFeedsEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDisableAllFeedsEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDisableFollowersEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDisableFollowersEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDisableProfilePostEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDisableProfilePostEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDisableChangeCommentEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDisableChangeCommentEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDisableLaterCommentEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDisableLaterCommentEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDisProfPostCommentEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDisProfPostCommentEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHideCSNGetChatterMobileTask"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHideCSNGetChatterMobileTask",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDisableMentionsPostEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDisableMentionsPostEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDisMentionsCommentEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDisMentionsCommentEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHideCSNDesktopTask"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHideCSNDesktopTask",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHideChatterOnboardingSplash"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHideChatterOnboardingSplash",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHideSecondChatterOnboardingSplash"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHideSecondChatterOnboardingSplash",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDisCommentAfterLikeEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDisCommentAfterLikeEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDisableLikeEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDisableLikeEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesSortFeedByComment"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesSortFeedByComment",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDisableMessageEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDisableMessageEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDismissRecordChannelsSuggestedObjects"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDismissRecordChannelsSuggestedObjects",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDisableBookmarkEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDisableBookmarkEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDisableSharePostEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDisableSharePostEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesActionLauncherEinsteinGptConsent"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesActionLauncherEinsteinGptConsent",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesAssistiveActionsEnabledInActionLauncher"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesAssistiveActionsEnabledInActionLauncher",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesEnableAutoSubForFeeds"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesEnableAutoSubForFeeds",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDisableFileShareNotificationsForApi"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDisableFileShareNotificationsForApi",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesEnableLwrLexPilot"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesEnableLwrLexPilot",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowTitleToExternalUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowTitleToExternalUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowManagerToExternalUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowManagerToExternalUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowEmailToExternalUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowEmailToExternalUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowWorkPhoneToExternalUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowWorkPhoneToExternalUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowMobilePhoneToExternalUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowMobilePhoneToExternalUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowFaxToExternalUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowFaxToExternalUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowStreetAddressToExternalUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowStreetAddressToExternalUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowCityToExternalUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowCityToExternalUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowStateToExternalUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowStateToExternalUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowPostalCodeToExternalUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowPostalCodeToExternalUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowCountryToExternalUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowCountryToExternalUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowProfilePicToGuestUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowProfilePicToGuestUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowTitleToGuestUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowTitleToGuestUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowCityToGuestUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowCityToGuestUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowStateToGuestUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowStateToGuestUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowPostalCodeToGuestUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowPostalCodeToGuestUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowCountryToGuestUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowCountryToGuestUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowForecastingChangeSignals"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowForecastingChangeSignals",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesLiveAgentMiawSetupDeflection"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesLiveAgentMiawSetupDeflection",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHideS1BrowserUI"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHideS1BrowserUI",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDisableEndorsementEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDisableEndorsementEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesPathAssistantCollapsed"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesPathAssistantCollapsed",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesCacheDiagnostics"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesCacheDiagnostics",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowEmailToGuestUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowEmailToGuestUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowManagerToGuestUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowManagerToGuestUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowWorkPhoneToGuestUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowWorkPhoneToGuestUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowMobilePhoneToGuestUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowMobilePhoneToGuestUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowFaxToGuestUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowFaxToGuestUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowStreetAddressToGuestUsers"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowStreetAddressToGuestUsers",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesLightningExperiencePreferred"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesLightningExperiencePreferred",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHideEndUserOnboardingAssistantModal"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHideEndUserOnboardingAssistantModal",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHideLightningMigrationModal"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHideLightningMigrationModal",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHideSfxWelcomeMat"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHideSfxWelcomeMat",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHideBiggerPhotoCallout"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHideBiggerPhotoCallout",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesGlobalNavBarWTShown"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesGlobalNavBarWTShown",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesGlobalNavGridMenuWTShown"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesGlobalNavGridMenuWTShown",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesCreateLEXAppsWTShown"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesCreateLEXAppsWTShown",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesFavoritesWTShown"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesFavoritesWTShown",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesRecordHomeSectionCollapseWTShown"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesRecordHomeSectionCollapseWTShown",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesRecordHomeReservedWTShown"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesRecordHomeReservedWTShown",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesFavoritesShowTopFavorites"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesFavoritesShowTopFavorites",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesExcludeMailAppAttachments"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesExcludeMailAppAttachments",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesSuppressTaskSFXReminders"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesSuppressTaskSFXReminders",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesSuppressEventSFXReminders"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesSuppressEventSFXReminders",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesPreviewCustomTheme"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesPreviewCustomTheme",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHasCelebrationBadge"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHasCelebrationBadge",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesUserDebugModePref"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesUserDebugModePref",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesSRHOverrideActivities"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesSRHOverrideActivities",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHasSentWarningEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHasSentWarningEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHasSentWarningEmail238"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHasSentWarningEmail238",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHasSentWarningEmail240"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHasSentWarningEmail240",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDismissPersonalSpaceLegalMessage"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDismissPersonalSpaceLegalMessage",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesDismissReuseUpdateReminderModal"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesDismissReuseUpdateReminderModal",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHideBrowseProductRedirectConfirmation"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHideBrowseProductRedirectConfirmation",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHideOnlineSalesAppTabVisibilityRequirementsModal"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHideOnlineSalesAppTabVisibilityRequirementsModal",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHideOnlineSalesAppWelcomeMat"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHideOnlineSalesAppWelcomeMat",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesHideManagedEcaMobilePubModal"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesHideManagedEcaMobilePubModal",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesShowForecastingRoundedAmounts"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesShowForecastingRoundedAmounts",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "HasUserVerifiedPhone"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "HasUserVerifiedPhone",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "HasUserVerifiedEmail"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "HasUserVerifiedEmail",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "ContactId"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "ContactId",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "reference"
+            }
+        },
+        {
+            "sourceFields": [
+                "AccountId"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "AccountId",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "reference"
+            }
+        },
+        {
+            "sourceFields": [
+                "CallCenterId"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "CallCenterId",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "reference"
+            }
+        },
+        {
+            "sourceFields": [
+                "Extension"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Extension",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "phone"
+            }
+        },
+        {
+            "sourceFields": [
+                "FederationIdentifier"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "FederationIdentifier",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "AboutMe"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "AboutMe",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "textarea"
+            }
+        },
+        {
+            "sourceFields": [
+                "FullPhotoUrl"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "FullPhotoUrl",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "url"
+            }
+        },
+        {
+            "sourceFields": [
+                "SmallPhotoUrl"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "SmallPhotoUrl",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "url"
+            }
+        },
+        {
+            "sourceFields": [
+                "IsExtIndicatorVisible"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "IsExtIndicatorVisible",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "OutOfOfficeMessage"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "OutOfOfficeMessage",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "MediumPhotoUrl"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "MediumPhotoUrl",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "url"
+            }
+        },
+        {
+            "sourceFields": [
+                "DigestFrequency"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "DigestFrequency",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "picklist"
+            }
+        },
+        {
+            "sourceFields": [
+                "DefaultGroupNotificationFrequency"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "DefaultGroupNotificationFrequency",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "picklist"
+            }
+        },
+        {
+            "sourceFields": [
+                "LastViewedDate"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "LastViewedDate",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "datetime"
+            }
+        },
+        {
+            "sourceFields": [
+                "LastReferencedDate"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "LastReferencedDate",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "datetime"
+            }
+        },
+        {
+            "sourceFields": [
+                "BannerPhotoUrl"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "BannerPhotoUrl",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "url"
+            }
+        },
+        {
+            "sourceFields": [
+                "SmallBannerPhotoUrl"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "SmallBannerPhotoUrl",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "url"
+            }
+        },
+        {
+            "sourceFields": [
+                "MediumBannerPhotoUrl"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "MediumBannerPhotoUrl",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "url"
+            }
+        },
+        {
+            "sourceFields": [
+                "IsProfilePhotoActive"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "IsProfilePhotoActive",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "Replace_Email__c"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Replace_Email__c",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "UserPreferencesNewLightningReportRunPageEnabled"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "UserPreferencesNewLightningReportRunPageEnabled",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        }
+    ]
+}

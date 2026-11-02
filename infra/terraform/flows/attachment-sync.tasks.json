@@ -1,0 +1,251 @@
+{
+    "tasks": [
+        {
+            "sourceFields": [],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "taskType": "Map_all",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "EXCLUDE_SOURCE_FIELDS_LIST": "[]"
+            }
+        },
+        {
+            "sourceFields": [
+                "Id"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Id",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "id"
+            }
+        },
+        {
+            "sourceFields": [
+                "IsDeleted"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "IsDeleted",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "ParentId"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "ParentId",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "reference"
+            }
+        },
+        {
+            "sourceFields": [
+                "Name"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Name",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "IsPrivate"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "IsPrivate",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "boolean"
+            }
+        },
+        {
+            "sourceFields": [
+                "ContentType"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "ContentType",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "string"
+            }
+        },
+        {
+            "sourceFields": [
+                "BodyLength"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "BodyLength",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "int"
+            }
+        },
+        {
+            "sourceFields": [
+                "Body"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Body",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "base64"
+            }
+        },
+        {
+            "sourceFields": [
+                "OwnerId"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "OwnerId",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "reference"
+            }
+        },
+        {
+            "sourceFields": [
+                "CreatedDate"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "CreatedDate",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "datetime"
+            }
+        },
+        {
+            "sourceFields": [
+                "CreatedById"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "CreatedById",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "reference"
+            }
+        },
+        {
+            "sourceFields": [
+                "LastModifiedDate"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "LastModifiedDate",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "datetime"
+            }
+        },
+        {
+            "sourceFields": [
+                "LastModifiedById"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "LastModifiedById",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "reference"
+            }
+        },
+        {
+            "sourceFields": [
+                "SystemModstamp"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "SystemModstamp",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "datetime"
+            }
+        },
+        {
+            "sourceFields": [
+                "Description"
+            ],
+            "connectorOperator": {
+                "Salesforce": "NO_OP"
+            },
+            "destinationField": "Description",
+            "taskType": "Map",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string",
+                "SOURCE_DATA_TYPE": "textarea"
+            }
+        },
+        {
+            "sourceFields": [
+                "ParentId",
+                "LastModifiedDate",
+                "IsDeleted",
+                "Description",
+                "ContentType",
+                "Name",
+                "SystemModstamp",
+                "OwnerId",
+                "CreatedById",
+                "CreatedDate",
+                "Id",
+                "IsPrivate",
+                "BodyLength",
+                "Body",
+                "LastModifiedById"
+            ],
+            "connectorOperator": {
+                "Salesforce": "PROJECTION"
+            },
+            "taskType": "Filter",
+            "taskProperties": {
+                "DESTINATION_DATA_TYPE": "string"
+            }
+        }
+    ]
+}
