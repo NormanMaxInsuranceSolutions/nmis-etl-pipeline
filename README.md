@@ -2,9 +2,11 @@
 Terraform configuration for AWS data Extraction, Transformation, and Loading pipelines managed by NormanMax Insurance Solutions
 
 ## Warning: AppFlow flows with explicit field mappings
-A flow can pass `tasks` with a fixed list of fields instead of mapping all fields (see `infra/terraform/flows/*.tasks.json`). That list is used as-is in dev (Salesforce arch), uat and prod, so:
+A flow can pass `tasks` with a fixed list of fields instead of mapping all fields (see `infra/terraform/flows/*.tasks.json`). That list is shared by dev (Salesforce arch), uat and prod, so:
 - Every field must exist with the same API name in all three Salesforce orgs.
 - The AppFlow integration user must be able to read every field, and the objects its lookup fields point to.
+
+If an environment needs a different list (for example, a field that exists only in prod), add a full copy of that flow's file to `infra/terraform/flows/<environment>/` (`dev`, `uat` or `prod`) with that environment's fields. That environment uses its own file and the others keep the shared one. When the shared file changes, update the environment copies too.
 
 If a field is missing or unreadable, the flow run fails with `INVALID_FIELD`, an error alert goes to Slack and AppFlow suspends the flow after a few failed runs.
 
@@ -15,7 +17,7 @@ The Jenkins pipeline checks every fixed field list against the target environmen
 ## Changing AppFlow flows
 Flows in this repo are managed by Terraform. Don't edit them in the AppFlow console: the change shows up as a diff in the next `terraform plan`, and the next apply puts the flow back to what the repo says.
 
-To change the fields of a flow with a fixed field list, update its file in `infra/terraform/flows/`, open a PR and run the pipeline. The files use the `describe-flow` task format, so a field list can be exported from an existing flow with:
+To change the fields of a flow with a fixed field list, update its file in `infra/terraform/flows/` (and its copies in `infra/terraform/flows/<environment>/`, if any), open a PR and run the pipeline. The files use the `describe-flow` task format, so a field list can be exported from an existing flow with:
 
 ```bash
 aws appflow describe-flow --flow-name <flow name> --query '{tasks:tasks}' --output json

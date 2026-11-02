@@ -26,11 +26,21 @@ locals {
     "COMPONENT" = upper(var.component)
   }
 
+  // Field list in flows/<workspace>/ is used only when that environment differs from shared one in flows/
+  console_flow_files = {
+    for name in ["attachment", "case", "email-message", "submission", "user"] :
+    name => (
+      fileexists("${path.module}/flows/${terraform.workspace}/${name}-sync.tasks.json")
+      ? "${path.module}/flows/${terraform.workspace}/${name}-sync.tasks.json"
+      : "${path.module}/flows/${name}-sync.tasks.json"
+    )
+  }
+
   // Alejandro @10/22/2026 NMIS-2131 Field mappings exported from AppFlow with describe-flow
   console_flow_tasks = {
-    for name in ["attachment", "case", "email-message", "submission", "user"] :
+    for name, file_path in local.console_flow_files :
     name => [
-      for t in jsondecode(file("${path.module}/flows/${name}-sync.tasks.json")).tasks : {
+      for t in jsondecode(file(file_path)).tasks : {
         source_fields      = t.sourceFields
         connector_operator = t.connectorOperator.Salesforce
         destination_field  = try(t.destinationField, null)
